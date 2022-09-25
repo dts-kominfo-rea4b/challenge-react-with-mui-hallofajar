@@ -1,7 +1,7 @@
 import Header from './components/Header';
 import './App.css';
 import React from 'react';
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, List } from '@mui/material';
 
 import Contact from './components/Contact';
 import ContactForm from './components/ContactForm';
@@ -32,7 +32,11 @@ const App = () => {
         </Grid>
         {/* Masukkan ContactList di sini */}
         <Grid item xs={6}>
-          <Contact data={contacts} />
+          <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+            {contacts.map((item, index) => {
+              return <Contact data={item} index={index} />;
+            })};
+          </List>
         </Grid>
       </Grid>
     </div>
